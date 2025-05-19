@@ -2,6 +2,7 @@ package com.heeone.basic01;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 // @Controller 의미
@@ -38,7 +39,7 @@ public class HomeController {
         return "스프링부트";
     }
 
-    //전역변수로 생성할것
+    //전역변수로 생성
     private int count;
 
     //생성자 메서드
@@ -56,6 +57,14 @@ public class HomeController {
         
         count++;
         return count;
+    }
+
+    @GetMapping("/home/plus")
+    @ResponseBody
+    // int a는 쿼리스트링에서 a 파라미터의 값을 얻은 후 정수화 한 값이어야 한다
+    //@RequestParam은 생략 가능
+    public int showPlus(@RequestParam(defaultValue= "0") int a, @RequestParam(defaultValue= "0") int b) {
+        return a+b;
     }
 
 }
