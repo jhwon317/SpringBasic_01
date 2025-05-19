@@ -31,11 +31,31 @@ public class HomeController {
 
     //요청 Get방식
     @GetMapping("/home/main3")
-    
+
     //응답결과를 화면에 띄워줌
     @ResponseBody
     public String showHome3() {
         return "스프링부트";
+    }
+
+    //전역변수로 생성할것
+    private int count;
+
+    //생성자 메서드
+    public HomeController() {
+        count = -1;
+    }
+
+    @GetMapping("/home/increase")
+    @ResponseBody
+    public int showIncrease() {
+        //아래 처럼 생성하면 count는 지역변수
+        //메서드가 만들어질때 생성되고 메서드가 종료되면 사라짐
+        //웹브라우저는 String 타입의 값만 이해한다
+        //int count;
+        
+        count++;
+        return count;
     }
 
 }
