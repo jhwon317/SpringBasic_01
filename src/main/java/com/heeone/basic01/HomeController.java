@@ -18,9 +18,24 @@ public class HomeController {
     //@ResponseBody의 의미
     //아래 메서드를 실행한 후 그 리턴값을
     //응답으로 사용
-
     @ResponseBody
     public String showHome() {
         return "Hi";
     }
+
+    @GetMapping("/home/main2")
+    @ResponseBody
+    public String showHome2() {
+        return "환영합니다";
+    }
+
+    //요청 Get방식
+    @GetMapping("/home/main3")
+    
+    //응답결과를 화면에 띄워줌
+    @ResponseBody
+    public String showHome3() {
+        return "스프링부트";
+    }
+
 }
